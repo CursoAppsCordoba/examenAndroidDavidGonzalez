@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.usuario.contactosinfernal.MainActivity">
+
+    <Button
+        android:id="@+id/botonmas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="78dp"
+        android:text="AÑADIR"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/contactosguardados"
+        android:layout_alignStart="@+id/contactosguardados" />
+
+    <Button
+        android:id="@+id/botonbuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/botonmas"
+        android:layout_alignRight="@+id/botonmas"
+        android:layout_below="@+id/botonmas"
+        android:layout_marginTop="53dp"
+        android:text="BUSCAR" />
+
+    <Button
+        android:id="@+id/botontodos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VER TODOS"
+        android:layout_below="@+id/botonbuscar"
+        android:layout_alignLeft="@+id/contactosguardados"
+        android:layout_alignStart="@+id/contactosguardados"
+        android:layout_marginTop="49dp" />
+
+    <EditText
+        android:id="@+id/contactosguardados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/botontodos"
+        android:layout_toLeftOf="@+id/quickContactBadge"
+        android:layout_toStartOf="@+id/quickContactBadge" />
+
+    <QuickContactBadge
+        android:id="@+id/quickContactBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/botonmas"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@android:drawable/alert_dark_frame" />
+
+</RelativeLayout>

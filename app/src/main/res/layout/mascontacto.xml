@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Nombre"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nombre"
+        android:layout_alignStart="@+id/nombre"
+        android:layout_below="@+id/nombre"
+        android:layout_marginTop="78dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text=""
+        android:hint="email"/>
+
+    <EditText
+        android:id="@+id/edad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/email"
+        android:layout_alignRight="@+id/email"
+        android:layout_below="@+id/email"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        android:hint="Edad"/>
+
+    <Button
+        android:id="@+id/botonalta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/edad"
+        android:layout_alignRight="@+id/edad"
+        android:layout_below="@+id/edad"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="67dp"
+        android:text="Añadir" />
+
+    <Button
+        android:id="@+id/cancelaradd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edad"
+        android:layout_alignStart="@+id/edad"
+        android:layout_alignTop="@+id/botonalta"
+        android:text="Cancelar" />
+</RelativeLayout>
