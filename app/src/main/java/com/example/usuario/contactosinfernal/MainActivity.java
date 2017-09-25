@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int alta = 100;
     public static final int listar=101;
     public static final int buscar=102;
+    public static final int eliminar=103;
     public ArrayList<Contacto> listacontacto;
 
     @Override
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnadd.setOnClickListener(this);
         Button btnlook=(Button)findViewById(R.id.botonbuscar);
         btnlook.setOnClickListener(this);
+        Button btnremove=(Button)findViewById(R.id.eliminar);
+        btnremove.setOnClickListener(this);
         listacontacto=new ArrayList<Contacto>();
     }
 
@@ -43,9 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.botontodos:
                 codigo=listar;
+                intent=new Intent(this, ListarTodos.class);
+                intent.putParcelableArrayListExtra("lista", listacontacto );
                 break;
             case R.id.eliminar:
-
+                codigo=eliminar;
+                intent=new Intent(this, Buscar.class);
                 break;
         }
         startActivityForResult(intent, codigo);
@@ -86,7 +92,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
 
+        }else if (eliminar==requestCode){
+            if (resultCode== Activity.RESULT_OK){
+                if (data.hasExtra("busqueda")){
+                    Contacto aux=data.getParcelableExtra("busqueda");
+                    int encontrados=0;
+                    for (Contacto c1:listacontacto) {
+                        if (c1.getNombre().equals(aux.getNombre())){
+                            encontrados++;
+                            listacontacto.remove(c1);
+                            numcontact.setText("Contactos guardados "+listacontacto.size());
+
+                        }
+
+                    }
+
+                }
+
+            }
+
         }
+
 
     }
 }

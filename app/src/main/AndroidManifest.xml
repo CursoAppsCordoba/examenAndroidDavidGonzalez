@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Mascontacto" />
-        <activity android:name=".Buscar"></activity>
+        <activity android:name=".Buscar" />
+        <activity android:name=".ListarTodos"></activity>
     </application>
 
 </manifest>
