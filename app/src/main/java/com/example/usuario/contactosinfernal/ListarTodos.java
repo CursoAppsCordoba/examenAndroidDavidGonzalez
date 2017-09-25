@@ -19,7 +19,10 @@ public class ListarTodos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_todos);
+        lwlistacontac=(ListView)findViewById(R.id.listac);
         Intent intent = getIntent();
+        listacontac = new ArrayList<Contacto>();
+        lista = new ArrayList<String>();
         listacontac=(ArrayList)intent.getParcelableArrayListExtra("lista");
         for (Contacto c:listacontac) {
             lista.add(c.getNombre());
