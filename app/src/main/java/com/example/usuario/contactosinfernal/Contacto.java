@@ -46,28 +46,6 @@ public class Contacto implements Parcelable {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Contacto Contacto = (Contacto) o;
-
-        if (edad != Contacto.edad) return false;
-        if (Nombre != null ? !Nombre.equals(Contacto.Nombre) : Contacto.Nombre != null)
-            return false;
-        return email != null ? email.equals(Contacto.email) : Contacto.email == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Nombre != null ? Nombre.hashCode() : 0;
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + edad;
-        return result;
-    }
-
     public String getNombre() {
         return Nombre;
     }
@@ -103,12 +81,32 @@ public class Contacto implements Parcelable {
 
     }
 
+
     @Override
     public String toString() {
-        return "Contacto{" +
-                "Nombre='" + Nombre + '\'' +
-                ", email='" + email + '\'' +
-                ", edad=" + edad +
-                '}';
+        return
+                "Nombre= " + Nombre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contacto contacto = (Contacto) o;
+
+        if (edad != contacto.edad) return false;
+        if (Nombre != null ? !Nombre.equals(contacto.Nombre) : contacto.Nombre != null)
+            return false;
+        return email != null ? email.equals(contacto.email) : contacto.email == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Nombre != null ? Nombre.hashCode() : 0;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + edad;
+        return result;
     }
 }

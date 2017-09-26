@@ -9,14 +9,18 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public static final int alta = 100;
-    public static final int listar=101;
-    public static final int buscar=102;
-    public static final int eliminar=103;
-    public ArrayList<Contacto> listacontacto;
+    public static final int ACTION_ALTA = 100;
+    public static final int ACTION_LISTAR=101;
+    public static final int ACTION_BUSCAR=102;
+    public static final int ACTION_ELIMINAR=103;
+    public static ArrayList<Contacto> listacontacto;
+    public Set<Contacto> lista;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnremove=(Button)findViewById(R.id.eliminar);
         btnremove.setOnClickListener(this);
         listacontacto=new ArrayList<Contacto>();
+        lista=new TreeSet<>();
+
+
     }
 
     @Override
@@ -38,19 +45,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.botonmas:
                 intent=new Intent(this, Mascontacto.class);
-                codigo=alta;
+                codigo=ACTION_ALTA;
                 break;
             case R.id.botonbuscar:
                 intent=new Intent(this, Buscar.class);
-               codigo=buscar;
+               codigo=ACTION_BUSCAR;
                 break;
             case R.id.botontodos:
-                codigo=listar;
+                codigo=ACTION_LISTAR;
                 intent=new Intent(this, ListarTodos.class);
                 intent.putParcelableArrayListExtra("lista", listacontacto );
                 break;
             case R.id.eliminar:
-                codigo=eliminar;
+                codigo=ACTION_ELIMINAR;
                 intent=new Intent(this, Buscar.class);
                 break;
         }
@@ -61,17 +68,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         EditText numcontact=(EditText)findViewById(R.id.contactosguardados);
-        if (alta== requestCode){
+        if (ACTION_ALTA== requestCode){
             if (resultCode== Activity.RESULT_OK){
                 if (data.hasExtra("contacto")){
                     listacontacto.add((Contacto)data.getParcelableExtra("contacto"));
+                    //listacontacto.addAll(lista);
+
                 }
 
             }
 
             numcontact.setText("Contactos guardados "+listacontacto.size());
         }
-       else if (buscar==requestCode){
+       else if (ACTION_BUSCAR==requestCode){
             setContentView(R.layout.resultadobusqueda);
             EditText resbusq=(EditText)findViewById(R.id.resultadobusquedatxt);
 
@@ -92,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
 
-        }else if (eliminar==requestCode){
+        }else if (ACTION_ELIMINAR==requestCode){
             if (resultCode== Activity.RESULT_OK){
                 if (data.hasExtra("busqueda")){
                     Contacto aux=data.getParcelableExtra("busqueda");

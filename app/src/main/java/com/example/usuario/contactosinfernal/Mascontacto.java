@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Mascontacto extends AppCompatActivity implements View.OnClickListener{
-
+    private EditText textnombre;
+    private EditText textmail;
+    private EditText textedad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +23,14 @@ public class Mascontacto extends AppCompatActivity implements View.OnClickListen
         btn1.setOnClickListener(this);
         Button btn2=(Button)findViewById(R.id.cancelaradd);
         btn2.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+
         switch (view.getId()){
+
             case R.id.botonalta:
                 AlertDialog.Builder cuadrodesalida = new AlertDialog.Builder(this);
                 cuadrodesalida.setTitle("¿Seguro de añadir contacto?");
@@ -41,9 +47,10 @@ public class Mascontacto extends AppCompatActivity implements View.OnClickListen
                         finish();
                     }
                 });
-                cuadrodesalida.setNegativeButton("NO", null);
+                   cuadrodesalida.setNegativeButton("NO", null);
 
-                cuadrodesalida.show();
+                   cuadrodesalida.show();
+
 
 
                 break;
