@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int ACTION_BUSCAR=102;
     public static final int ACTION_ELIMINAR=103;
     public static ArrayList<Contacto> listacontacto;
-    public Set<Contacto> lista;
+    //public Set<Contacto> lista;
 
 
     @Override
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnremove=(Button)findViewById(R.id.eliminar);
         btnremove.setOnClickListener(this);
         listacontacto=new ArrayList<Contacto>();
-        lista=new TreeSet<>();
+
 
 
     }
@@ -72,17 +72,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (resultCode== Activity.RESULT_OK){
                 if (data.hasExtra("contacto")){
                     listacontacto.add((Contacto)data.getParcelableExtra("contacto"));
-                    //listacontacto.addAll(lista);
+                    //lista=new HashSet<>(listacontacto);
 
                 }
 
             }
 
-            numcontact.setText("Contactos guardados "+listacontacto.size());
+            numcontact.setText("Contactos:"+listacontacto.size());
         }
        else if (ACTION_BUSCAR==requestCode){
             setContentView(R.layout.resultadobusqueda);
             EditText resbusq=(EditText)findViewById(R.id.resultadobusquedatxt);
+
 
             if (resultCode== Activity.RESULT_OK){
                 if (data.hasExtra("busqueda")){
@@ -110,7 +111,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (c1.getNombre().equals(aux.getNombre())){
                             encontrados++;
                             listacontacto.remove(c1);
-                            numcontact.setText("Contactos guardados "+listacontacto.size());
+                            //lista=new HashSet<>(listacontacto);
+                            numcontact.setText("Contactos:"+listacontacto.size());
 
                         }
 
@@ -120,6 +122,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
 
+        }else if (ACTION_LISTAR==requestCode){
+            if (data.hasExtra("listado")){
+                listacontacto=data.getParcelableArrayListExtra("listado");
+                //lista=new HashSet<>(listacontacto);
+                numcontact.setText("Contactos:"+listacontacto.size());
+            }
         }
 
 

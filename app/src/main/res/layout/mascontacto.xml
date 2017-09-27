@@ -52,7 +52,8 @@
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
         android:layout_marginTop="67dp"
-        android:text="Añadir" />
+        android:text="Añadir"
+        android:background="@drawable/boton_redondo"/>
 
     <Button
         android:id="@+id/cancelaradd"
@@ -61,5 +62,6 @@
         android:layout_alignLeft="@+id/edad"
         android:layout_alignStart="@+id/edad"
         android:layout_alignTop="@+id/botonalta"
-        android:text="Cancelar" />
+        android:text="Cancelar"
+        android:background="@drawable/boton_redondo"/>
 </RelativeLayout>

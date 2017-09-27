@@ -14,7 +14,8 @@
         android:text="AÑADIR"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/contactosguardados"
-        android:layout_alignStart="@+id/contactosguardados" />
+        android:layout_alignStart="@+id/contactosguardados"
+        android:background="@drawable/boton_redondo"/>
 
     <Button
         android:id="@+id/botonbuscar"
@@ -24,7 +25,8 @@
         android:layout_alignRight="@+id/botonmas"
         android:layout_below="@+id/botonmas"
         android:layout_marginTop="53dp"
-        android:text="BUSCAR" />
+        android:text="BUSCAR"
+        android:background="@drawable/boton_redondo"/>
 
     <Button
         android:id="@+id/botontodos"
@@ -35,30 +37,32 @@
         android:layout_below="@+id/botonbuscar"
         android:layout_marginTop="49dp"
         android:onClick="onClick"
-        android:text="VER TODOS" />
+        android:text="VER TODOS"
+        android:background="@drawable/boton_redondo"/>
 
     <EditText
         android:id="@+id/contactosguardados"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:layout_below="@+id/botontodos"
+        android:layout_marginTop="29dp"
         android:layout_toLeftOf="@+id/quickContactBadge"
-        android:layout_toStartOf="@+id/quickContactBadge" />
+        android:layout_toStartOf="@+id/quickContactBadge"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <QuickContactBadge
         android:id="@+id/quickContactBadge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/botonmas"
         android:layout_marginEnd="61dp"
         android:layout_marginRight="61dp"
         android:layout_marginTop="30dp"
-        app:srcCompat="@android:drawable/alert_dark_frame" />
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
     <Button
         android:id="@+id/eliminar"
@@ -69,6 +73,7 @@
         android:layout_alignTop="@+id/botontodos"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="Eliminar" />
+        android:text="Eliminar"
+        android:background="@drawable/boton_redondo"/>
 
 </RelativeLayout>

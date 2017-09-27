@@ -2,6 +2,7 @@ package com.example.usuario.contactosinfernal;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.provider.ContactsContract;
 
 import java.util.Comparator;
 
@@ -85,7 +86,7 @@ public class Contacto implements Parcelable {
     @Override
     public String toString() {
         return
-                "Nombre= " + Nombre;
+                Nombre+" edad: "+edad+"\n"+ "email: "+email;
     }
 
     @Override

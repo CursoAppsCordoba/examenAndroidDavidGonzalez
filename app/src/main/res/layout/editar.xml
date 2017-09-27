@@ -31,12 +31,14 @@
         android:id="@+id/bteditar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Editar" />
+        android:text="Editar"
+        android:background="@drawable/boton_redondo"/>
 
     <Button
         android:id="@+id/btncancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cancel" />
+        android:text="Cancel"
+        android:background="@drawable/boton_redondo"/>
 
 </LinearLayout>
